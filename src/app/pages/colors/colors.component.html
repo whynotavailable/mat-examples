@@ -1,0 +1,33 @@
+<div class="content">
+  <div class="surface-dim-colors">surface-dim-colors</div>
+  <div class="surface-colors">surface-colors</div>
+  <div class="surface-bright-colors">surface-bright-colors</div>
+
+  <div class="primary-colors">primary-colors</div>
+  <div class="secondary-colors">secondary-colors</div>
+  <div class="tertiary-colors">tertiary-colors</div>
+
+  <div class="primary-container-colors">primary-container-colors</div>
+  <div class="secondary-container-colors">secondary-container-colors</div>
+  <div class="tertiary-container-colors">tertiary-container-colors</div>
+
+  <div class="primary-fixed-colors">primary-fixed-colors</div>
+  <div class="secondary-fixed-colors">secondary-fixed-colors</div>
+  <div class="tertiary-fixed-colors">tertiary-fixed-colors</div>
+
+  <div class="primary-fixed-dim-colors">primary-fixed-dim-colors</div>
+  <div class="secondary-fixed-dim-colors">secondary-fixed-dim-colors</div>
+  <div class="tertiary-fixed-dim-colors">tertiary-fixed-dim-colors</div>
+
+  <div class="error-colors">error-colors</div>
+  <div class="error-container-colors">error-container-colors</div>
+</div>
+
+<div class="footer">
+  @for (navItem of navService.getNavItems(); track navItem.route) {
+    <a [routerLink]="navItem.route">{{ navItem.displayName }}</a>
+    @if (!$last) {
+      <span> / </span>
+    }
+  }
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Directory</h1>
+
+  <p>As some of the links here take you to demos with full layouts, those pages may not have a link back here.</p>
+
+  <div class="nav-container">
+    <mat-nav-list>
+      @for (navItem of navService.getNavItems(); track navItem.route) {
+        <a mat-list-item [routerLink]="navItem.route">{{ navItem.displayName }}</a>
+      }
+    </mat-nav-list>
+  </div>
+</div>

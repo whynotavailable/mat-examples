@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <span>Basic Site</span>
+  <span class="spacer"></span>
+  @for (navItem of navService.getNavItems(); track navItem.route) {
+    <a mat-button [routerLink]="navItem.route">{{ navItem.displayName }}</a>
+  }
+</mat-toolbar>
+
+<div class="content">
+  <p>
+    This is a super basic site, doubling as a demo of the snackbar.
+  </p>
+  <button (click)="openAlert('default')" mat-flat-button>Primary</button>
+  <button (click)="openAlert('secondary')" class="secondary-button" mat-flat-button>Secondary</button>
+  <button (click)="openAlert('tertiary')" class="tertiary-button" mat-flat-button>Tertiary</button>
+  <button (click)="openAlert('error')" class="error-button" mat-flat-button>Error</button>
+</div>

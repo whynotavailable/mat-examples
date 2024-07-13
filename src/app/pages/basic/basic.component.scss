@@ -1,0 +1,21 @@
+@use '../../../../node_modules/@angular/material/index' as mat;
+@import "../../../styles";
+
+// Inverted colors for the nav bar
+mat-toolbar {
+  @include colors(primary-container);
+}
+
+mat-toolbar a {
+  color: mat.get-theme-color($my-theme, on-primary-container);
+}
+
+.spacer {
+  display: inline-block;
+  width: 20px;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+}

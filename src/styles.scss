@@ -1,1 +1,80 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the theme object.
+$my-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$violet-palette,
+    tertiary: mat.$magenta-palette,
+  ),
+  density: (
+    scale: 0,
+  )
+));
+
+@mixin colors($color, $on-color:'on-' + $color) {
+  background-color: mat.get-theme-color($my-theme, $color);
+  color: mat.get-theme-color($my-theme, $on-color);
+}
+
+// This is completely annoying. MDC tags should be made easier to find and use.
+@mixin snackbar-colors($color, $on-color: 'on-' + $color) {
+  --mdc-snackbar-container-color: #{mat.get-theme-color($my-theme, $color)};
+  --mdc-snackbar-supporting-text-color: #{mat.get-theme-color($my-theme, $on-color)};
+  --mat-snack-bar-button-color: #{mat.get-theme-color($my-theme, $on-color)};
+}
+
+.primary-snackbar {
+  @include snackbar-colors(primary);
+}
+
+.secondary-snackbar {
+  @include snackbar-colors(secondary);
+}
+
+.tertiary-snackbar {
+  @include snackbar-colors(tertiary);
+}
+
+.error-snackbar {
+  @include snackbar-colors(error);
+}
+
+.secondary-button {
+  @include mat.button-color($my-theme, $color-variant: secondary);
+}
+
+.tertiary-button {
+  @include mat.button-color($my-theme, $color-variant: tertiary);
+}
+
+.error-button {
+  @include mat.button-color($my-theme, $color-variant: error);
+}
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+:root {
+  @include mat.all-component-themes($my-theme);
+}
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+// @include mat.typography-hierarchy($mat-examples-theme);
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($mat-examples-theme);
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

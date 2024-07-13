@@ -1,0 +1,105 @@
+@use '../../../../node_modules/@angular/material/index' as mat;
+@import "../../../styles";
+
+.content {
+  max-width: 1000px;
+  margin: 15px auto;
+
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 800px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.content > div {
+  text-align: center;
+
+  padding: 20px 0;
+}
+
+.footer {
+  text-align: center;
+}
+
+.footer, .footer a {
+  color: mat.get-theme-color($my-theme, on-surface-variant);
+}
+
+// Surfaces
+.surface-dim-colors {
+  @include colors(surface-dim, on-surface);
+}
+
+.surface-colors {
+  @include colors(surface);
+}
+
+.surface-bright-colors {
+  @include colors(surface-bright, on-surface);
+}
+
+// Elements
+.primary-colors {
+  @include colors(primary);
+}
+
+.secondary-colors {
+  @include colors(secondary);
+}
+
+.tertiary-colors {
+  @include colors(tertiary);
+}
+
+// Containers
+.primary-container-colors {
+  @include colors(primary-container);
+}
+
+.secondary-container-colors {
+  @include colors(secondary-container);
+}
+
+.tertiary-container-colors {
+  @include colors(tertiary-container);
+}
+
+
+.primary-fixed-colors {
+  @include colors(primary-fixed);
+}
+
+.secondary-fixed-colors {
+  @include colors(secondary-fixed);
+}
+
+.tertiary-fixed-colors {
+  @include colors(tertiary-fixed);
+}
+
+
+.primary-fixed-dim-colors {
+  @include colors(primary-fixed-dim, on-primary-fixed);
+}
+
+.secondary-fixed-dim-colors {
+  @include colors(secondary-fixed-dim, on-secondary-fixed);
+}
+
+.tertiary-fixed-dim-colors {
+  @include colors(tertiary-fixed-dim, on-tertiary-fixed);
+}
+
+
+.error-colors {
+  @include colors(error);
+}
+
+.error-container-colors {
+  @include colors(error-container);
+}
