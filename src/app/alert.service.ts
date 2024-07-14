@@ -25,6 +25,7 @@ export class AlertService {
     this.snackbar.open(fullAlert.message, 'X', {
       panelClass: fullAlert.color + '-snackbar',
       duration: fullAlert.timeout,
+
     });
   }
 }

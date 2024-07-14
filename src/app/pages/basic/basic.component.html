@@ -2,7 +2,7 @@
   <span>Basic Site</span>
   <span class="spacer"></span>
   @for (navItem of navService.getNavItems(); track navItem.route) {
-    <a mat-button [routerLink]="navItem.route">{{ navItem.displayName }}</a>
+    <a class="toolbar-button" mat-button [routerLink]="navItem.route">{{ navItem.displayName }}</a>
   }
 </mat-toolbar>
 

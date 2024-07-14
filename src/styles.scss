@@ -21,45 +21,39 @@ $my-theme: mat.define-theme((
   )
 ));
 
-@mixin colors($color, $on-color:'on-' + $color) {
-  background-color: mat.get-theme-color($my-theme, $color);
-  color: mat.get-theme-color($my-theme, $on-color);
-}
+//@mixin snackbar-colors($color, $on-color: 'on-' + $color) {
+//  .#{$color}-snackbar {
+//    --mdc-snackbar-container-color: #{mat.get-theme-color($my-theme, $color)};
+//    --mdc-snackbar-supporting-text-color: #{mat.get-theme-color($my-theme, $on-color)};
+//    --mat-snack-bar-button-color: #{mat.get-theme-color($my-theme, $on-color)};
+//  }
+//}
 
-// This is completely annoying. MDC tags should be made easier to find and use.
 @mixin snackbar-colors($color, $on-color: 'on-' + $color) {
-  --mdc-snackbar-container-color: #{mat.get-theme-color($my-theme, $color)};
-  --mdc-snackbar-supporting-text-color: #{mat.get-theme-color($my-theme, $on-color)};
-  --mat-snack-bar-button-color: #{mat.get-theme-color($my-theme, $on-color)};
+  .#{$color}-snackbar {
+    @include mat.snack-bar-overrides((
+      container-color: mat.get-theme-color($my-theme, $color),
+      supporting-text-color: mat.get-theme-color($my-theme, $on-color),
+      button-color: mat.get-theme-color($my-theme, $on-color)
+    ))
+  }
 }
 
-.primary-snackbar {
-  @include snackbar-colors(primary);
+@include snackbar-colors(primary);
+@include snackbar-colors(secondary);
+@include snackbar-colors(tertiary);
+@include snackbar-colors(error);
+
+@mixin button-colors($variant) {
+  .#{$variant}-button {
+    @include mat.button-color($my-theme, $color-variant: $variant);
+  }
 }
 
-.secondary-snackbar {
-  @include snackbar-colors(secondary);
-}
-
-.tertiary-snackbar {
-  @include snackbar-colors(tertiary);
-}
-
-.error-snackbar {
-  @include snackbar-colors(error);
-}
-
-.secondary-button {
-  @include mat.button-color($my-theme, $color-variant: secondary);
-}
-
-.tertiary-button {
-  @include mat.button-color($my-theme, $color-variant: tertiary);
-}
-
-.error-button {
-  @include mat.button-color($my-theme, $color-variant: error);
-}
+@include button-colors(primary);
+@include button-colors(secondary);
+@include button-colors(tertiary);
+@include button-colors(error);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
