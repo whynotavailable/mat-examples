@@ -17,6 +17,7 @@ export class NavService {
       { displayName: 'Home', route: '/home' },
       { displayName: 'Basic', route: '/basic' },
       { displayName: 'Colors', route: '/colors' },
+      { displayName: 'Side Nav', route: '/side-nav' },
     ];
   }
 }

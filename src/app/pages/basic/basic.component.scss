@@ -2,8 +2,6 @@
 @import "../../../styles";
 
 mat-toolbar {
-  //--mat-toolbar-container-background-color: #{mat.get-theme-color($my-theme, primary-container)};
-  //--mat-toolbar-container-text-color: #{mat.get-theme-color($my-theme, on-primary-container)};
   @include mat.toolbar-overrides((
     container-background-color: mat.get-theme-color($my-theme, primary-container),
     container-text-color: mat.get-theme-color($my-theme, on-primary-container)

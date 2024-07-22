@@ -9,6 +9,10 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+
 // Define the theme object.
 $my-theme: mat.define-theme((
   color: (
@@ -16,18 +20,14 @@ $my-theme: mat.define-theme((
     primary: mat.$violet-palette,
     tertiary: mat.$magenta-palette,
   ),
+  typography: (
+    plain-family: 'Open Sans',
+    brand-family: 'Open Sans',
+  ),
   density: (
     scale: 0,
   )
 ));
-
-//@mixin snackbar-colors($color, $on-color: 'on-' + $color) {
-//  .#{$color}-snackbar {
-//    --mdc-snackbar-container-color: #{mat.get-theme-color($my-theme, $color)};
-//    --mdc-snackbar-supporting-text-color: #{mat.get-theme-color($my-theme, $on-color)};
-//    --mat-snack-bar-button-color: #{mat.get-theme-color($my-theme, $on-color)};
-//  }
-//}
 
 @mixin snackbar-colors($color, $on-color: 'on-' + $color) {
   .#{$color}-snackbar {
@@ -71,4 +71,12 @@ $my-theme: mat.define-theme((
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:normal;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
